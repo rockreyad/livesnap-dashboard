@@ -1,5 +1,3 @@
-
-
 import { TbLayoutDashboard } from "react-icons/tb";
 import { RiFileUserFill } from "react-icons/ri";
 import { VscSignOut } from "react-icons/vsc";
@@ -10,32 +8,32 @@ const sidebarList = [
   {
     name: `Dashboard`,
     path: `/`,
-    icon: <TbLayoutDashboard/>,
+    icon: <TbLayoutDashboard />,
   },
   {
     name: `Users`,
-    path: `/`,
-    icon: <RiFileUserFill/>,
+    path: `users`,
+    icon: <RiFileUserFill />,
   },
   {
     name: `Get License`,
-    path: `/`,
-    icon: <FiKey/>,
+    path: `license`,
+    icon: <FiKey />,
   },
   {
     name: `Waiting List`,
-    path: `/`,
-    icon: <FaListAlt/>,
+    path: `approval`,
+    icon: <FaListAlt />,
   },
   {
     name: `Setting`,
-    path: `/`,
-    icon: <IoSettings/>,
+    path: `setting`,
+    icon: <IoSettings />,
   },
   {
     name: `Logout`,
-    path: `/`,
-    icon: <VscSignOut/>,
+    path: `logout`,
+    icon: <VscSignOut />,
   },
 ];
 

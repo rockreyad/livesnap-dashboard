@@ -1,11 +1,13 @@
-import logo from './logo.svg';
-import Dashboard from './pages/Dashboard';
-import './styles/tailwind.css'
+import {BrowserRouter as Router} from 'react-router-dom'
+import Dashboard from "./pages/Dashboard";
+import "./styles/tailwind.css";
 
 function App() {
   return (
-    <Dashboard/>
-  );
+    <Router>
+      <Dashboard />;
+    </Router>
+    )
 }
 
 export default App;
