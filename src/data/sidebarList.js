@@ -22,7 +22,7 @@ const sidebarList = [
   },
   {
     name: `Waiting List`,
-    path: `approval`,
+    path: `waiting`,
     icon: <FaListAlt />,
   },
   {
