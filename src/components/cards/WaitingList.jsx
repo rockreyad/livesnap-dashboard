@@ -49,17 +49,17 @@ const WaitingList = ({
         </div>
 
         {pack === "Unlimited" ? (
-          <div className="flex justify-end  text-sm mt-4">
-            <button className="bg-green-400 px-5 py-1 rounded-md text-white font-semibold hover:bg-green-500 uppercase shadow-md">
+          <div className="flex justify-end  text-xs mt-4">
+            <button className="border border-green-400  px-5 py-1 rounded-md text-gray-400 hover:text-white font-semibold hover:bg-green-500 uppercase shadow-md">
               Change
             </button>
           </div>
         ) : (
-          <div className="flex justify-between text-sm mt-4">
-            <button className="bg-rose-400 px-5  py-1 rounded-md text-white font-semibold hover:bg-rose-500 uppercase shadow-md">
+          <div className="flex justify-between text-xs mt-4">
+            <button className="border-t border-red-400 px-5  py-1 rounded-md text-gray-400 hover:text-white font-semibold hover:bg-rose-500 uppercase shadow-md">
               Reject
             </button>
-            <button className="bg-green-400 px-5 py-1 rounded-md text-white font-semibold hover:bg-green-500 uppercase shadow-md">
+            <button className="border-t border-green-400 px-5 py-1 rounded-md text-gray-400 hover:text-white font-semibold  hover:bg-green-500 uppercase shadow-md">
               Change
             </button>
           </div>

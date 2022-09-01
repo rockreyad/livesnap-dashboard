@@ -30,11 +30,6 @@ const sidebarList = [
     path: `setting`,
     icon: <IoSettings />,
   },
-  {
-    name: `Logout`,
-    path: `logout`,
-    icon: <VscSignOut />,
-  },
 ];
 
 export default sidebarList;

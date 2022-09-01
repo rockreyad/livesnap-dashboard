@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import DashboardTiles from "../components/cards/DashboardTiles";
 import OverviewCard from "../components/cards/OverviewCard";
 import packages from "../data/packages";
 
 const MainLayout = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (localStorage.getItem("token-info")) {
+      console.log("A");
+    } else {
+      console.log("Working");
+      navigate("/sign-in");
+    }
+    return () => {};
+  }, [localStorage.getItem("token")]);
   return (
     <>
       <div className="bg-gradient-to-r from-purple-500 to-rose-400 py-10 px-10 w-full rounded-2xl mt-5">
