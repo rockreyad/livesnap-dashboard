@@ -11,7 +11,7 @@ const MainLayout = () => {
     if (localStorage.getItem("token-info")) {
       console.log("A");
     } else {
-      console.log("Working");
+      console.log("Send to Login page");
       navigate("/sign-in");
     }
     return () => {};

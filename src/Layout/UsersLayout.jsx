@@ -1,21 +1,45 @@
 import React from "react";
 import UsersList from "../components/cards/UsersList";
-import users from "../data/users";
 
-const UsersLayout = () => {
+const UsersLayout = ({ users }) => {
   return (
     <div className="flex flex-wrap justify-start w-fit">
-      {users.map(({ fullName, username, pack, snapkitManager, activated }) => (
-        <div className="p-2 w-1/5">
-          <UsersList
-            name={fullName}
-            username={username}
-            packageName={pack}
-            manager={snapkitManager}
-            activated={activated}
-          />
-        </div>
-      ))}
+      {users.map(
+        ({
+          FullName,
+          username,
+          Plan,
+          Verify,
+          License,
+          key,
+          Address,
+          DeviceId,
+          DeviceName,
+          Phone,
+          LoginDeviceId,
+          UserId,
+          email,
+        }) => (
+          <div className="p-2 w-1/5">
+            <UsersList
+              key={key}
+              name={FullName}
+              username={FullName}
+              packageName={Plan}
+              manager={License}
+              activated={Verify}
+              address={Address}
+              deviceId={DeviceId}
+              deviceName={DeviceName}
+              license={License}
+              phone={Phone}
+              loginDeviceId={LoginDeviceId}
+              userId={UserId}
+              email={email}
+            />
+          </div>
+        )
+      )}
 
       <div className="container mx-auto sm:px-4">
         <nav aria-label="Page navigation">

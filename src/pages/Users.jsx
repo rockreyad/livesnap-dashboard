@@ -1,28 +1,38 @@
-import React, { useEffect, useState } from "react";
-import ProfileCard from "../components/cards/ProfileCard";
-import Navbar from "../components/Sidebars/Navbar";
+import React from "react";
 
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
-import MainSearchBar from "../components/Searchbars/MainSearchBar";
-import sidebarList from "../data/sidebarList";
-import MainLayout from "../Layout/MainLayout";
-import UsersLayout from "../Layout/UsersLayout";
-import LicenseListLayout from "../Layout/LicenseListLayout";
-import WaitingLayout from "../Layout/WaitingLayout";
-import Login from "./Login";
-import { useAuth } from "../contexts/AuthContext";
-import { Button } from "../components/common/Button";
 import { VscSignOut } from "react-icons/vsc";
+import ProfileCard from "../components/cards/ProfileCard";
+import MainSearchBar from "../components/Searchbars/MainSearchBar";
+import Navbar from "../components/Sidebars/Navbar";
+import sidebarList from "../data/sidebarList";
+import UsersLayout from "../Layout/UsersLayout";
+import { useEffect, useState } from "react";
+import { StartFirebase } from "../service/firebase.config";
+import users from "../data/users";
+import { getDatabase, ref, child, get } from "firebase/database";
 
-const Dashboard = () => {
-  const navigate = useNavigate();
-  const [check, setCheck] = useState(false);
-
-  const [count, setCount] = useState({ number: 1 });
-  const increment = () => {
-    setCount((oldValue) => ({ ...oldValue, number: oldValue.number + 1 }));
-  };
-
+const Users = () => {
+  const copyUser = users;
+  const [ausers, setUsers] = useState([]);
+  const userId = "08q4DrJ3z8eh2Se1C8tjCUWIWUC3";
+  useEffect(() => {
+    const dbRef = ref(getDatabase());
+    var usrD = [];
+    get(child(dbRef, `Users`))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          var dataArray = Object.values(data);
+          console.log(dataArray);
+          setUsers(dataArray);
+        } else {
+          console.log("No data available");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
   return (
     <>
       <div class="flex flex-row">
@@ -50,7 +60,7 @@ const Dashboard = () => {
         </section>
         <section className="w-8/12 bg-orange-200 bg-opacity-10 px-10 py-5">
           <MainSearchBar />
-          <MainLayout />
+          <UsersLayout users={ausers} />
         </section>
         <section className="w-2/12">
           <p>Right Sidebar</p>
@@ -60,4 +70,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Users;

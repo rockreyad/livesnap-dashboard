@@ -15,6 +15,14 @@ const UsersList = ({
   packageName,
   manager,
   activated,
+  address,
+  deviceId,
+  deviceName,
+  license,
+  phone,
+  loginDeviceId,
+  userId,
+  email,
 }) => {
   const [showProfile, setShowProfile] = useState(false);
   const cancelButtonRef = useRef(null);
@@ -75,6 +83,57 @@ const UsersList = ({
                     >
                       {name}
                     </Dialog.Title>
+                  </div>
+                  <div className="bg-white flex flex-col font-Nunito p-2 space-y-1">
+                    <p className="text-gray-500 font-normal">
+                      Address:
+                      <span className="mx-2 font-semibold text-black">
+                        {address}
+                      </span>
+                    </p>
+                    <p className="text-gray-500 font-normal">
+                      Device Id:
+                      <span className="mx-2 font-semibold text-black">
+                        {deviceId}
+                      </span>
+                    </p>
+                    <p className="text-gray-500 font-normal">
+                      Device Name:
+                      <span className="mx-2 font-semibold text-black">
+                        {deviceName}
+                      </span>
+                    </p>
+                    <p className="text-gray-500 font-normal">
+                      Login Device Id:
+                      <span className="mx-2 font-semibold text-black">
+                        {loginDeviceId}
+                      </span>
+                    </p>
+                    <p className="text-gray-500 font-normal">
+                      License:
+                      <span className="mx-2 font-semibold text-black">
+                        {license}
+                      </span>
+                    </p>
+                    <p className="text-gray-500 font-normal">
+                      Phone:
+                      <span className="mx-2 font-semibold text-black">
+                        {phone}
+                      </span>
+                    </p>
+
+                    <p className="text-gray-500 font-normal">
+                      User Id:
+                      <span className="mx-2 font-semibold text-black">
+                        {userId}
+                      </span>
+                    </p>
+                    <p className="text-gray-500 font-normal">
+                      Email:
+                      <span className="mx-2 font-semibold text-black">
+                        {email}
+                      </span>
+                    </p>
                   </div>
                   <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                     <button

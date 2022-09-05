@@ -3,12 +3,15 @@ import livesnap from "../pages/livesnap.png";
 import { Navigate, Link, useNavigate } from "react-router-dom";
 import { async } from "@firebase/util";
 import { useAuth } from "../contexts/AuthContext";
+import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-
+  const notify = (msg) => {
+    toast(msg);
+  };
   const navigate = useNavigate();
 
   const { currentUser, login } = useAuth();
@@ -21,6 +24,17 @@ const Login = () => {
     }
   };
 
+  useEffect(() => {
+    if (localStorage.getItem("token-info")) {
+      console.log("Send to mainLayout");
+      navigate("/");
+    } else {
+      console.log("Send to Login page");
+      navigate("/sign-in");
+    }
+    return () => {};
+  }, [localStorage.getItem("token")]);
+
   return (
     <div class="bg-gradient-to-r from-rose-700 to-pink-600 h-screen font-sans w-full">
       <div class="container mx-auto h-full flex justify-center items-center">
@@ -29,6 +43,7 @@ const Login = () => {
             class="border-teal p-8 border-t-12
  bg-white  mb-6 rounded-lg shadow-lg"
           >
+            <ToastContainer />
             <div className="flex items-center justify-center pb-5">
               <img src={livesnap} className=" w-1/2" alt="" />
             </div>
@@ -55,7 +70,7 @@ const Login = () => {
                     navigate("/");
                   })
                   .catch((error) => {
-                    console.log(error.message);
+                    notify(error.message);
                   })
                   .finally(() => setIsSubmitting(false));
               }}
@@ -94,9 +109,7 @@ const Login = () => {
                 <button
                   class="bg-gradient-to-r from-rose-700 to-pink-600 hover:from-indigo-400 hover:to-indigo-500 text-white font-bold py-2 px-4 rounded"
                   type="onSubmit"
-                  // onClick={() => {
-                  //   navigate("/");
-                  // }}
+                  // onClick={() => notify("Login toast works")}
                 >
                   Login
                 </button>

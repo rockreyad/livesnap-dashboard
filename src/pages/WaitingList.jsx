@@ -1,28 +1,13 @@
-import React, { useEffect, useState } from "react";
-import ProfileCard from "../components/cards/ProfileCard";
-import Navbar from "../components/Sidebars/Navbar";
-
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
-import MainSearchBar from "../components/Searchbars/MainSearchBar";
-import sidebarList from "../data/sidebarList";
-import MainLayout from "../Layout/MainLayout";
-import UsersLayout from "../Layout/UsersLayout";
-import LicenseListLayout from "../Layout/LicenseListLayout";
-import WaitingLayout from "../Layout/WaitingLayout";
-import Login from "./Login";
-import { useAuth } from "../contexts/AuthContext";
-import { Button } from "../components/common/Button";
+import React from "react";
 import { VscSignOut } from "react-icons/vsc";
+import ProfileCard from "../components/cards/ProfileCard";
+import MainSearchBar from "../components/Searchbars/MainSearchBar";
+import Navbar from "../components/Sidebars/Navbar";
+import sidebarList from "../data/sidebarList";
+import UsersLayout from "../Layout/UsersLayout";
+import WaitingLayout from "../Layout/WaitingLayout";
 
-const Dashboard = () => {
-  const navigate = useNavigate();
-  const [check, setCheck] = useState(false);
-
-  const [count, setCount] = useState({ number: 1 });
-  const increment = () => {
-    setCount((oldValue) => ({ ...oldValue, number: oldValue.number + 1 }));
-  };
-
+const WaitingList = () => {
   return (
     <>
       <div class="flex flex-row">
@@ -50,7 +35,7 @@ const Dashboard = () => {
         </section>
         <section className="w-8/12 bg-orange-200 bg-opacity-10 px-10 py-5">
           <MainSearchBar />
-          <MainLayout />
+          <WaitingLayout />
         </section>
         <section className="w-2/12">
           <p>Right Sidebar</p>
@@ -60,4 +45,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default WaitingList;
