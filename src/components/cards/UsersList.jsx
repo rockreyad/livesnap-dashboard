@@ -1,7 +1,7 @@
 import React, { useState, Fragment, useRef } from "react";
 
 import { MdBrightness1 } from "react-icons/md";
-import { BsThreeDots } from "react-icons/bs";
+import { BsThreeDots, BsClipboard } from "react-icons/bs";
 import { FiPackage } from "react-icons/fi";
 import { CgUserlane } from "react-icons/cg";
 import { Dialog, Transition } from "@headlessui/react";
@@ -25,6 +25,7 @@ const UsersList = ({
   email,
 }) => {
   const [showProfile, setShowProfile] = useState(false);
+  const [copy, setCopy] = useState("");
   const cancelButtonRef = useRef(null);
 
   return (
@@ -109,12 +110,20 @@ const UsersList = ({
                         {loginDeviceId}
                       </span>
                     </p>
-                    <p className="text-gray-500 font-normal">
-                      License:
-                      <span className="mx-2 font-semibold text-black">
-                        {license}
-                      </span>
-                    </p>
+                    <div className="flex justify-between">
+                      <p className="text-gray-500 font-normal">
+                        License:
+                        <span className="mx-2 font-semibold text-black">
+                          {license}
+                        </span>
+                      </p>
+                      <BsClipboard
+                        className="font-semibold shadow-md mr-2 hover:font-bold hover:text-rose-600 hover:drop-shadow-md hover:cursor-pointer"
+                        onClick={() => {
+                          navigator.clipboard.writeText(license);
+                        }}
+                      />
+                    </div>
                     <p className="text-gray-500 font-normal">
                       Phone:
                       <span className="mx-2 font-semibold text-black">
@@ -190,7 +199,7 @@ const UsersList = ({
                 className="w-8 rounded-full"
                 alt=""
               />
-              <div className="">
+              <div className="flex flex-col items-center justify-center">
                 <p
                   className={`${
                     packageName === "Unlimited"
@@ -206,7 +215,7 @@ const UsersList = ({
                   }  flex items-center justify-end `}
                 >
                   <CgUserlane className="mr-0.5 text-rose-300" />
-                  {username}
+                  {email}
                 </h6>
               </div>
             </div>
@@ -234,7 +243,10 @@ const UsersList = ({
                     ? " hover:bg-gradient-to-br from-indigo-600 via-indigo-700 to-indigo-500"
                     : "hover:bg-gradient-to-r from-rose-700 to-pink-600"
                 }  hover:text-white  hover:font-semibold bg-white text-xs`}
-                onClick={() => setShowProfile(true)}
+                onClick={() => {
+                  setShowProfile(true);
+                  setCopy(license);
+                }}
               >
                 View Profile
               </button>

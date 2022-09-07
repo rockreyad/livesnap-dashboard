@@ -15,7 +15,7 @@ const MainLayout = () => {
       navigate("/sign-in");
     }
     return () => {};
-  }, [localStorage.getItem("token")]);
+  }, [localStorage.getItem("token-info")]);
   return (
     <>
       <div className="bg-gradient-to-r from-purple-500 to-rose-400 py-10 px-10 w-full rounded-2xl mt-5">

@@ -22,6 +22,7 @@ import { useEffect, useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import Users from "./pages/Users";
 import WaitingList from "./pages/WaitingList";
+import ComingSoon from "./pages/ComingSoon";
 
 const db = getDatabase();
 function App() {
@@ -48,10 +49,8 @@ function App() {
           <Route path="/users" element={<Users />} />
           <Route path="/license" element={<LicenseListLayout />} />
           <Route path="/waiting" element={<WaitingList />} />
+          <Route path="/coming-soon" element={<ComingSoon />} />
         </Routes>
-        <>
-
-        </>
       </Router>
     </AuthContextProvider>
   );
