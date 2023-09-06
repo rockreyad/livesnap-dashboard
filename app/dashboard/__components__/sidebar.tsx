@@ -14,20 +14,16 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-const navigation = [
-  { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-  { name: "License", href: "/license", icon: KeyIcon, current: false },
-];
 
 const links = [
   { label: "Home", icon: HomeIcon, href: "#", isActive: true },
-  {
-    label: "License",
-    icon: KeyIcon,
-    href: "license",
-    notificationCount: 3,
-    isActive: false,
-  },
+  // {
+  //   label: "License",
+  //   icon: KeyIcon,
+  //   href: "/license",
+  //   notificationCount: 3,
+  //   isActive: false,
+  // },
 ];
 
 const bottomLinks: [] = [
@@ -82,17 +78,17 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
               >
                 <Icon className="h-6 w-6 flex-shrink-0" />
                 <span className="sr-only">{link.label}</span>
-                {link.notificationCount ? (
+                {/* {link.notificationCount ? (
                   <span className="absolute right-0 top-0 inline-block translate-x-2 -translate-y-2 rounded-lg bg-primary py-0.5 px-1 text-xs font-semibold text-white">
                     {link.notificationCount}
                   </span>
-                ) : null}
+                ) : null} */}
               </a>
             );
           })}
         </div>
       </div>
-      <div className="mb-2 space-y-3 px-1 sm:px-2">
+      {/* <div className="mb-2 space-y-3 px-1 sm:px-2">
         {bottomLinks.map((link) => {
           const Icon = link.icon;
           return (
@@ -115,7 +111,7 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
             </a>
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 
@@ -161,17 +157,17 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
               >
                 <Icon className="mr-3 h-6 w-6 flex-shrink-0" />
                 <span className="flex-1 font-semibold">{link.label}</span>
-                {link.notificationCount ? (
+                {/* {link.notificationCount ? (
                   <span className="ml-3 inline-block rounded-lg bg-primary py-0.5 px-2 text-sm font-semibold text-white">
                     {link.notificationCount}
                   </span>
-                ) : null}
+                ) : null} */}
               </a>
             );
           })}
         </div>
       </div>
-      <div className="mb-2 space-y-1 px-1 sm:px-2">
+      {/* <div className="mb-2 space-y-1 px-1 sm:px-2">
         {bottomLinks.map((link) => {
           const Icon = link.icon;
           return (
@@ -194,7 +190,7 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
             </a>
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 

@@ -37,7 +37,7 @@ export default function SearchActionbar(props: SearchActionbarProps) {
 
   return (
     <section className="flex flex-col">
-      <div className="container mx-auto flex width-full text-xl">
+      <div className="flex w-full lg:w-2/3 xl:w-1/3 text-xl">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="48"
