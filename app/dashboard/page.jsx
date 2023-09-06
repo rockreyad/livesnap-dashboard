@@ -1,3 +1,3 @@
 export default function DashboardIndex() {
-  return <p>Dashboard Index Page</p>;
+  return <p className="h-full">Dashboard Index Page</p>;
 }
